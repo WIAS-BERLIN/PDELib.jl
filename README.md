@@ -18,6 +18,7 @@ These packages are:
 
 Not part of PDELib.jl, but maintained as part of the project:
 
-- [Triangulate.jl](https://github.com/JuliaGeometry/Triangulate.jl):  Julia wrapper of the [Triangle](https://www.cs.cmu.edu/~quake/triangle.html) triangle mesh generator by J. Shewchuk
-- [TetGen.jl](https://github.com/JuliaGeometry/TetGen.jl): (co-maintained with S. Danisch):   Julia wrapper of the [TetGen](http://www.tetgen.org) tetrahedral mesh generator by H. Si.
+- [Triangulate.jl](https://github.com/JuliaGeometry/Triangulate.jl),  [Triangle_jll.jl](https://github.com/JuliaBinaryWrappers/Triangle_jll.jl):  Julia wrapper and binary package of the [Triangle](https://www.cs.cmu.edu/~quake/triangle.html) triangle mesh generator by J. Shewchuk
+- [TetGen.jl](https://github.com/JuliaGeometry/TetGen.jl),[TetGen_jll.jl](https://github.com/JuliaBinaryWrappers/TetGen_jll.jl): (co-maintained with [S. Danisch](https://github.com/SimonDanisch)):   Julia wrapper binary package of the [TetGen](http://www.tetgen.org) tetrahedral mesh generator by H. Si.
+
 
