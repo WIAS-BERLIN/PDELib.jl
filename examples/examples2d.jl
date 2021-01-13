@@ -41,8 +41,8 @@ function laplacecirc(;Plotter=nothing,nref=0)
     solve!(solution,inival,sys)
 
     visualizer=GridVisualizer(Plotter=Plotter,layout=(1,2),resolution=(800,400))
-    visualize!(visualizer[1,1],grid)
-    visualize!(visualizer[1,2],grid,solution[1,:])
+    gridplot!(visualizer[1,1],grid)
+    scalarplot!(visualizer[1,2],grid,solution[1,:])
     reveal(visualizer)
 end
 
@@ -66,6 +66,6 @@ function laplacerect(;Plotter=nothing)
     inival=unknowns(sys,inival=0)
     solution=unknowns(sys)
     solve!(solution,inival,sys)
-    visualize(grid,solution[1,:],Plotter=Plotter)
+    scalarplot(grid,solution[1,:],Plotter=Plotter)
 end
 
