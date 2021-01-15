@@ -1,3 +1,6 @@
+[![Build status](https://github.com/WIAS-BERLIN/PDELib.jl/workflows/linux-macos-windows/badge.svg)](https://github.com/WIAS-BERLIN/PDELib.jl/actions)
+
+
 PDELib.jl
 =========
 
