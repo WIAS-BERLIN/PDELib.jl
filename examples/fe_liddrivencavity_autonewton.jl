@@ -19,52 +19,50 @@ of the manual newton is slightly faster, but requires much more code input from 
 
 =#
 
-module Example_2DLidDrivenCavityADNewton
 
 using PDELib
 using Printf
 
-## data
-function boundary_data_top!(result)
-    result[1] = 1;
-    result[2] = 0;
-end
+function fe_liddrivencavity_autonewton(; verbosity = 0, Plotter = nothing, ADnewton = true, nref=2)
 
-## everything is wrapped in a main function
-function main(; verbosity = 2, Plotter = nothing, ADnewton = true)
-
+    function boundary_data_top!(result)
+        result[1] = 1;
+        result[2] = 0;
+    end
+    
+    
     ## grid
-    xgrid = uniform_refine(grid_unitsquare(Triangle2D), 6);
-
+    xgrid = uniform_refine(grid_unitsquare(Triangle2D), nref);
+    
     ## problem parameters
     viscosity = 1e-2
     maxIterations = 50  # termination criterion 1 for nonlinear mode
     maxResidual = 1e-12 # termination criterion 2 for nonlinear mode
     broken_p = false
-
+    
     ## choose one of these (inf-sup stable) finite element type pairs
     #FETypes = [H1P2{2,2}, H1P1{1}] # Taylor--Hood
     #FETypes = [H1P2B{2,2}, H1P1{1}]; broken_p = true # P2-bubble
     #FETypes = [H1CR{2}, H1P0{1}] # Crouzeix--Raviart
     #FETypes = [H1MINI{2,2}, H1P1{1}] # MINI element on triangles only
     FETypes = [H1BR{2}, H1P0{1}]; broken_p = true # Bernardi--Raugel
-
+    
     #####################################################################################    
     #####################################################################################
-
+    
     ## negotiate data functions to the package
     user_function_bnd = DataFunction(boundary_data_top!, [2,2]; name = "u_bnd", dependencies = "", quadorder = 0)
-
+    
     ## load linear Stokes problem prototype and assign data
     ## we are adding the nonlinar convection term ourself below
     ## to discuss the details
     StokesProblem = IncompressibleNavierStokesProblem(2; viscosity = viscosity, nonlinear = false)
     add_boundarydata!(StokesProblem, 1, [1,2,4], HomogeneousDirichletBoundary)
     add_boundarydata!(StokesProblem, 1, [3], BestapproxDirichletBoundary; data = user_function_bnd)
-
+    
     ## store matrix of Laplace operator for nonlinear solver
     StokesProblem.LHSOperators[1,1][1].store_operator = true   
-
+    
     ## add Newton for convection term
     if ADnewton
         ## AUTOMATIC DIFFERENTATION
@@ -81,7 +79,7 @@ function main(; verbosity = 2, Plotter = nothing, ADnewton = true)
             return nothing
         end 
         action_kernel = ActionKernel(ugradu_kernel_AD, [2,6]; dependencies = "", quadorder = 1)
-
+        
         ## generate and add nonlinear PDEOperator (modifications to RHS are taken care of automatically)
         NLConvectionOperator = GenerateNonlinearForm("(u * grad) u  * v", [Identity, Gradient], [1,1], Identity, action_kernel; ADnewton = true)            
         add_operator!(StokesProblem, [1,1], NLConvectionOperator)
@@ -116,25 +114,23 @@ function main(; verbosity = 2, Plotter = nothing, ADnewton = true)
         end
         newton_action_kernel = NLActionKernel(ugradu_kernel_nonAD, [2,6]; dependencies = "", quadorder = 1)
         action_kernel_rhs = ActionKernel(ugradu_kernel_rhs, [2,6]; dependencies = "", quadorder = 1)
-
+        
         ## generate and add nonlinear PDEOperator (modifications to RHS are taken care of by optional arguments)
         NLConvectionOperator = GenerateNonlinearForm("(u * grad) u  * v", [Identity, Gradient], [1,1], Identity, newton_action_kernel; ADnewton = false, action_kernel_rhs = action_kernel_rhs)            
         add_operator!(StokesProblem, [1,1], NLConvectionOperator)         
     end
-
+    
     ## generate FESpaces
     FESpaceVelocity = FESpace{FETypes[1]}(xgrid)
     FESpacePressure = FESpace{FETypes[2]}(xgrid; broken = broken_p)
     Solution = FEVector{Float64}("Stokes velocity",FESpaceVelocity)
     append!(Solution,"Stokes pressure",FESpacePressure)
-
+    
     ## show configuration and solve Stokes problem
     Base.show(StokesProblem)
     GradientRobustMultiPhysics.solve!(Solution, StokesProblem; verbosity = verbosity, maxIterations = maxIterations, maxResidual = maxResidual)
-
+    
     ## plot
     GradientRobustMultiPhysics.plot(Solution, [1,2], [Identity, Identity]; Plotter = Plotter, verbosity = verbosity, use_subplots = true)
-
-end
-
+    true 
 end
