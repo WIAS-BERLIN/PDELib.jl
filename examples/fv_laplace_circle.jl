@@ -1,7 +1,6 @@
 using PDELib
 
-
-function laplacecirc(;Plotter=nothing,nref=0)
+function fv_laplace_circle(;Plotter=nothing,nref=0)
     
     function circle!(builder, center, radius; n=20*2^nref)
         points=[point!(builder, center[1]+radius*sin(t),center[2]+radius*cos(t)) for t in range(0,2π,length=n)]
@@ -38,34 +37,11 @@ function laplacecirc(;Plotter=nothing,nref=0)
     boundary_dirichlet!(sys,ispec,2,1.0)
     inival=unknowns(sys,inival=0)
     solution=unknowns(sys)
-    solve!(solution,inival,sys)
+    VoronoiFVM.solve!(solution,inival,sys)
 
     visualizer=GridVisualizer(Plotter=Plotter,layout=(1,2),resolution=(800,400))
     gridplot!(visualizer[1,1],grid)
     scalarplot!(visualizer[1,2],grid,solution[1,:])
     reveal(visualizer)
+    true
 end
-
-
-
-
-function laplacerect(;Plotter=nothing)
-    nspecies=1 
-    ispec=1    
-    X=collect(0:0.2:1)
-    function g!(f,u0,edge)
-        u=unknowns(edge,u0)
-        f[1]=u[1,1]-u[1,2]
-    end
-    grid=simplexgrid(X,X)
-    physics=VoronoiFVM.Physics(num_species=nspecies,flux=g!)
-    sys=VoronoiFVM.System(grid,physics)
-    enable_species!(sys,ispec,[1])
-    boundary_dirichlet!(sys,ispec,1,0.0)
-    boundary_dirichlet!(sys,ispec,3,1.0)
-    inival=unknowns(sys,inival=0)
-    solution=unknowns(sys)
-    solve!(solution,inival,sys)
-    scalarplot(grid,solution[1,:],Plotter=Plotter)
-end
-
