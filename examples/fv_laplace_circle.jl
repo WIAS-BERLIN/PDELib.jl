@@ -1,4 +1,5 @@
 using PDELib
+using Triangulate
 
 function fv_laplace_circle(;Plotter=nothing,nref=0)
     
@@ -10,7 +11,7 @@ function fv_laplace_circle(;Plotter=nothing,nref=0)
         facet!(builder,points[end],points[1])
     end
 
-    builder=SimplexGridBuilder(dim=2)
+    builder=SimplexGridBuilder(Generator=Triangulate)
     cellregion!(builder,1)
     maxvolume!(builder,0.1)
     regionpoint!(builder,0,0)
