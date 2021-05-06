@@ -16,7 +16,9 @@ function make_all()
     )
     
     if !isinteractive()
-        deploydocs(repo = "github.com/j-fu/PDELib.jl.git")
+        deploydocs(repo = "github.com/j-fu/PDELib.jl.git",
+                   devbranch = "main"
+                   )
     end
 end
 
