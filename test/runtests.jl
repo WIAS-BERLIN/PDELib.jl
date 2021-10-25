@@ -1,4 +1,4 @@
-using Test
+using Test, Pkg
 using PDELib
 using Pluto, Markdown, InteractiveUtils
 
@@ -23,6 +23,7 @@ function notebooktest(name)
     input=joinpath(@__DIR__,"..","examples",name*".jl")
     @info "Run $(input)"
     Pluto.activate_notebook_environment(input)
+    Pkg.instantiate()
     length(include(input))>0  # Notebooks return their manifest in the moment.
 end
 
