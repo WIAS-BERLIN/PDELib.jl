@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.16.3
+# v0.16.4
 
 using Markdown
 using InteractiveUtils
@@ -20,9 +20,9 @@ begin
 	using Triangulate
 	using TetGen
 	using GridVisualize
-    using PlutoVista
+        using PlutoVista
 	using PlutoUI
-	GridVisualize.default_plotter!(PlutoVista)
+        isdefined(Main,:PlutoRunner) ? 	default_plotter!(PlutoVista) : default_plotter!(nothing) 
 end
 
 # ╔═╡ 940b1996-fe9d-11ea-2fa4-8b72bee62b76
@@ -46,7 +46,7 @@ using the [simplexgrid](https://j-fu.github.io/ExtendableGrids.jl/stable/simplex
 X1=range(0,1;length=11)
 
 # ╔═╡ 4622a1fc-fda7-4211-9cc0-4eb1a1584aa6
-g1=simplexgrid(X1)
+g1=simplexgrid(X1); @show g1
 
 # ╔═╡ 3212b930-194d-422e-9d06-65885b25cc6d
 md"""

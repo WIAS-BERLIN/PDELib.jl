@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.16.3
+# v0.16.4
 
 using Markdown
 using InteractiveUtils
@@ -20,8 +20,8 @@ begin
 	using SimplexGridFactory
 	using PlutoVista
 	using GridVisualize
-	using Triangulate
-	default_plotter!(PlutoVista)
+        using Triangulate
+        isdefined(Main,:PlutoRunner) ? 	default_plotter!(PlutoVista) : default_plotter!(nothing) 
 end
 
 # ╔═╡ 07194f25-5735-452f-9bed-cf791958d44d
