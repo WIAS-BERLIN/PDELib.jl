@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.16.2
+# v0.16.3
 
 using Markdown
 using InteractiveUtils
@@ -227,7 +227,7 @@ Triangulate = "f7e6ffb2-c36d-4f8f-a77e-16e897189344"
 ExtendableGrids = "~0.8.7"
 GridVisualize = "~0.3.9"
 PlutoUI = "~0.7.16"
-PlutoVista = "~0.8.4"
+PlutoVista = "~0.8.6"
 SimplexGridFactory = "~0.5.9"
 Triangulate = "~2.1.0"
 """
@@ -236,7 +236,7 @@ Triangulate = "~2.1.0"
 PLUTO_MANIFEST_TOML_CONTENTS = """
 # This file is machine-generated - editing it directly is not advised
 
-julia_version = "1.7.0-rc1"
+julia_version = "1.7.0-rc2"
 manifest_format = "2.0"
 
 [[deps.AbstractTrees]]
@@ -348,9 +348,9 @@ uuid = "47d2ed2b-36de-50cf-bf87-49c2cf4b8b91"
 version = "0.0.4"
 
 [[deps.HypertextLiteral]]
-git-tree-sha1 = "f6532909bf3d40b308a0f360b6a0e626c0e263a8"
+git-tree-sha1 = "5efcf53d798efede8fee5b2c8b09284be359bf24"
 uuid = "ac1192a8-f4b3-4bfe-ba22-af5b92cd3ab2"
-version = "0.9.1"
+version = "0.9.2"
 
 [[deps.IOCapture]]
 deps = ["Logging", "Random"]
@@ -465,9 +465,9 @@ version = "0.7.16"
 
 [[deps.PlutoVista]]
 deps = ["ColorSchemes", "Colors", "DocStringExtensions", "GridVisualize", "UUIDs"]
-git-tree-sha1 = "29894b1c2258ae59a2af698d3f16dcfe683baa71"
+git-tree-sha1 = "34fc7e41e6eefa58fef0786ab62a20262df88764"
 uuid = "646e1f28-b900-46d7-9d87-d554eb38a413"
-version = "0.8.4"
+version = "0.8.6"
 
 [[deps.Preferences]]
 deps = ["TOML"]
@@ -484,7 +484,7 @@ deps = ["InteractiveUtils", "Markdown", "Sockets", "Unicode"]
 uuid = "3fa0cd96-eef1-5676-8a61-b3b8758bbffb"
 
 [[deps.Random]]
-deps = ["Serialization"]
+deps = ["SHA", "Serialization"]
 uuid = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
 
 [[deps.Reexport]]

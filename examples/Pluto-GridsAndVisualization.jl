@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.16.2
+# v0.16.3
 
 using Markdown
 using InteractiveUtils
@@ -417,10 +417,10 @@ func3=map((x,y,z)-> sin(x/2)*cos(y/2)*z/10,grid3d1)
 p3dg=GridVisualizer(dim=3,resolution=(200,200))
 
 # ╔═╡ ef1fde48-fe90-4714-ac86-614ae3451aa7
-p3ds=GridVisualizer(dim=3,resolution=(200,200))
+p3ds=GridVisualizer(dim=3,resolution=(400,400))
 
-# ╔═╡ 50f9331c-50fd-43bf-9b78-d500b0f72955
-mean(x)=sum(x)/length(x);
+# ╔═╡ 04041481-0f03-41e1-a7de-1b3fd033c952
+mean(x)=sum(x)/length(x)
 
 # ╔═╡ a3844fda-5725-4d95-894b-051a5f6c2faa
 md"""
@@ -440,7 +440,7 @@ gridplot!(p3dg,grid3d1,zplanes=[zplane],yplanes=[yplane], xplanes=[xplane], reso
 # ╔═╡ d73d18e7-bcf9-4cc1-9154-b70dc1ff5524
 
 
-	scalarplot!(p3ds,grid3d1, func3, zplanes=[zplane], yplanes=[yplane],xplanes=[xplane],levels=[flevel],colormap=:spring,resolution=(200,200),show=true)
+	scalarplot!(p3ds,grid3d1, func3, zplanes=[zplane], yplanes=[yplane],xplanes=[xplane],levels=[flevel],colormap=:spring,resolution=(200,200),show=true,levelalpha=0.5,outlinealpha=0.1)
 
 
 # ╔═╡ 6cad87eb-1c59-4000-b688-a6f6d41f9413
@@ -515,6 +515,18 @@ html"""<hr>"""
 # ╔═╡ 7ad541b1-f40f-4cdd-b7b5-b792a8e63d71
 TableOfContents(depth=4)
 
+# ╔═╡ 071b8834-d3d1-4d08-979f-56b05bc1e0d3
+md"""
+    begin
+       using Pkg
+       Pkg.activate(mktempdir())
+       Pkg.add(["PlutoUI","Revise","Triangulate","TetGen"])
+       using Revise
+	   Pkg.develop(["ExtendableGrids","SimplexGridFactory",
+           "GridVisualize","PlutoVista"])
+    end
+"""
+
 # ╔═╡ 00000000-0000-0000-0000-000000000001
 PLUTO_PROJECT_TOML_CONTENTS = """
 [deps]
@@ -530,7 +542,7 @@ Triangulate = "f7e6ffb2-c36d-4f8f-a77e-16e897189344"
 ExtendableGrids = "~0.8.7"
 GridVisualize = "~0.3.9"
 PlutoUI = "~0.7.16"
-PlutoVista = "~0.8.4"
+PlutoVista = "~0.8.6"
 SimplexGridFactory = "~0.5.9"
 TetGen = "~1.3.0"
 Triangulate = "~2.1.0"
@@ -540,7 +552,7 @@ Triangulate = "~2.1.0"
 PLUTO_MANIFEST_TOML_CONTENTS = """
 # This file is machine-generated - editing it directly is not advised
 
-julia_version = "1.7.0-rc1"
+julia_version = "1.7.0-rc2"
 manifest_format = "2.0"
 
 [[deps.AbstractTrees]]
@@ -652,9 +664,9 @@ uuid = "47d2ed2b-36de-50cf-bf87-49c2cf4b8b91"
 version = "0.0.4"
 
 [[deps.HypertextLiteral]]
-git-tree-sha1 = "f6532909bf3d40b308a0f360b6a0e626c0e263a8"
+git-tree-sha1 = "5efcf53d798efede8fee5b2c8b09284be359bf24"
 uuid = "ac1192a8-f4b3-4bfe-ba22-af5b92cd3ab2"
-version = "0.9.1"
+version = "0.9.2"
 
 [[deps.IOCapture]]
 deps = ["Logging", "Random"]
@@ -769,9 +781,9 @@ version = "0.7.16"
 
 [[deps.PlutoVista]]
 deps = ["ColorSchemes", "Colors", "DocStringExtensions", "GridVisualize", "UUIDs"]
-git-tree-sha1 = "29894b1c2258ae59a2af698d3f16dcfe683baa71"
+git-tree-sha1 = "34fc7e41e6eefa58fef0786ab62a20262df88764"
 uuid = "646e1f28-b900-46d7-9d87-d554eb38a413"
-version = "0.8.4"
+version = "0.8.6"
 
 [[deps.Preferences]]
 deps = ["TOML"]
@@ -788,7 +800,7 @@ deps = ["InteractiveUtils", "Markdown", "Sockets", "Unicode"]
 uuid = "3fa0cd96-eef1-5676-8a61-b3b8758bbffb"
 
 [[deps.Random]]
-deps = ["Serialization"]
+deps = ["SHA", "Serialization"]
 uuid = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
 
 [[deps.Reexport]]
@@ -979,13 +991,14 @@ uuid = "3f19e933-33d8-53b3-aaab-bd5110c3b7a0"
 # ╠═f97d085c-e7bf-4561-8183-673912bdeab6
 # ╠═ef1fde48-fe90-4714-ac86-614ae3451aa7
 # ╠═d73d18e7-bcf9-4cc1-9154-b70dc1ff5524
-# ╟─a3844fda-5725-4d95-894b-051a5f6c2faa
-# ╠═50f9331c-50fd-43bf-9b78-d500b0f72955
+# ╠═a3844fda-5725-4d95-894b-051a5f6c2faa
+# ╠═04041481-0f03-41e1-a7de-1b3fd033c952
 # ╟─6cad87eb-1c59-4000-b688-a6f6d41f9413
 # ╠═fefc7587-8e25-4080-b934-90c0e1afc56a
 # ╠═065735f7-c799-4284-bd59-fe6383bb987c
 # ╠═329992a0-e352-468b-af8b-0b190315fc61
 # ╟─a7965a6e-2e83-47eb-aee2-d366246a8637
 # ╠═7ad541b1-f40f-4cdd-b7b5-b792a8e63d71
+# ╠═071b8834-d3d1-4d08-979f-56b05bc1e0d3
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
