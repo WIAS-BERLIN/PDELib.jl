@@ -1,7 +1,7 @@
 name = "PDELib"
 uuid = "89250b5f-5002-42e4-96e5-388c85c70594"
 authors = ["Juergen Fuhrmann <juergen.fuhrmann@wias-berlin.de>"]
-version = "0.3.0^"
+version = "0.3.0"
 
 [deps]
 ExtendableGrids = "cfc395e8-590f-11e8-1f13-43a2532b2fa8"
