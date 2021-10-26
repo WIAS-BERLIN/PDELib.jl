@@ -1,7 +1,6 @@
-using Test, Pkg
+using Test
 using PDELib
-import Pluto
-using Markdown, InteractiveUtils
+import Pluto, Pkg
 
 function runtest(t)
     include(joinpath(@__DIR__,"..","examples",t*".jl"))
@@ -20,25 +19,26 @@ end
 
 
 
-function notebooktest(name)
+function testnotebook(name)
     input=joinpath(@__DIR__,"..","examples",name*".jl")
-    cd(joinpath(@__DIR__,"..","examples"))
-    @info pwd()
-    @info "Run $(input)"
-    Pluto.reset_notebook_environment(input, keep_project=true,backup=false)
-    Pluto.activate_notebook_environment(input)
-    Pkg.resolve()
-    Pkg.instantiate()
-    include(input)  # Notebooks return their manifest in the moment.
-    true
+    notebook=Pluto.load_notebook_nobackup(input)
+    session = Pluto.ServerSession();
+    notebook = Pluto.SessionActions.open(session,input; run_async=false)
+    errored=false
+    for c in notebook.cells
+        if c.errored
+            errored=true
+            @error "Error in  $(c.cell_id): $(c.output.body[:msg])\n $(c.code)"
+        end
+    end
+    !errored
 end
-
 
 notebooks=["Pluto-GridsAndVisualization",
            "Pluto-MultECatGrids"]
 
-# @testset "Notebooks" begin
-#     for notebook in notebooks
-#         @test notebooktest(notebook)
-#     end
-# end
+@testset "Notebooks" begin
+     for notebook in notebooks
+         @test testnotebook(notebook)
+     end
+end

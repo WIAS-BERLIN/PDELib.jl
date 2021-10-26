@@ -13,6 +13,15 @@ macro bind(def, element)
     end
 end
 
+# ╔═╡ 940b1996-fe9d-11ea-2fa4-8b72bee62b76
+md"""
+# Grid creation and visualization in PDELib.jl
+
+This notebook shows how to perform grid creation and visualization with the assistance of the packages [ExtendableGrids.jl](https://github.com/j-fu/ExtendableGrids.jl) and [SimplexGridFactory.jl](https://github.com/j-fu/SimplexGridFactory.jl) which are part of the  [PDELib.jl](https://github.com/WIAS-BERLIN/PDElib.jl) meta package.
+
+Visualization in this notebook is done using the [GridVisualize.jl](https://github.com/j-fu/GridVisualize.jl) package.
+"""
+
 # ╔═╡ d432ad64-f91f-11ea-2e48-4bc7472ac64c
 begin
 	using SimplexGridFactory
@@ -24,15 +33,6 @@ begin
 	using PlutoUI
         isdefined(Main,:PlutoRunner) ? 	default_plotter!(PlutoVista) : default_plotter!(nothing) 
 end
-
-# ╔═╡ 940b1996-fe9d-11ea-2fa4-8b72bee62b76
-md"""
-# Grid creation and visualization in PDELib.jl
-
-This notebook shows how to perform grid creation and visualization with the assistance of the packages [ExtendableGrids.jl](https://github.com/j-fu/ExtendableGrids.jl) and [SimplexGridFactory.jl](https://github.com/j-fu/SimplexGridFactory.jl) which are part of the  [PDELib.jl](https://github.com/WIAS-BERLIN/PDElib.jl) meta package.
-
-Visualization in this notebook is done using the [GridVisualize.jl](https://github.com/j-fu/GridVisualize.jl) package.
-"""
 
 # ╔═╡ 47103e8f-a4ff-46ed-a632-572a2e194a50
 md"""
@@ -416,11 +416,17 @@ func3=map((x,y,z)-> sin(x/2)*cos(y/2)*z/10,grid3d1)
 # ╔═╡ 38e2b4a8-2480-40e7-bde3-6d1775201aae
 p3dg=GridVisualizer(dim=3,resolution=(200,200))
 
+# ╔═╡ f97d085c-e7bf-4561-8183-673912bdeab6
+gridplot!(p3dg,grid3d1,zplanes=[zplane],yplanes=[yplane], xplanes=[xplane], resolution=(200,200),show=true)
+
 # ╔═╡ ef1fde48-fe90-4714-ac86-614ae3451aa7
 p3ds=GridVisualizer(dim=3,resolution=(400,400))
 
-# ╔═╡ 04041481-0f03-41e1-a7de-1b3fd033c952
-mean(x)=sum(x)/length(x)
+# ╔═╡ d73d18e7-bcf9-4cc1-9154-b70dc1ff5524
+
+
+	scalarplot!(p3ds,grid3d1, func3, zplanes=[zplane], yplanes=[yplane],xplanes=[xplane],levels=[flevel],colormap=:spring,resolution=(200,200),show=true,levelalpha=0.5,outlinealpha=0.1)
+
 
 # ╔═╡ a3844fda-5725-4d95-894b-051a5f6c2faa
 md"""
@@ -434,14 +440,8 @@ z=$(@bind zplane Slider(X3[1]:0.1:X3[end],default=X3[end],show_value=true))
 
 """
 
-# ╔═╡ f97d085c-e7bf-4561-8183-673912bdeab6
-gridplot!(p3dg,grid3d1,zplanes=[zplane],yplanes=[yplane], xplanes=[xplane], resolution=(200,200),show=true)
-
-# ╔═╡ d73d18e7-bcf9-4cc1-9154-b70dc1ff5524
-
-
-	scalarplot!(p3ds,grid3d1, func3, zplanes=[zplane], yplanes=[yplane],xplanes=[xplane],levels=[flevel],colormap=:spring,resolution=(200,200),show=true,levelalpha=0.5,outlinealpha=0.1)
-
+# ╔═╡ 04041481-0f03-41e1-a7de-1b3fd033c952
+mean(x)=sum(x)/length(x)
 
 # ╔═╡ 6cad87eb-1c59-4000-b688-a6f6d41f9413
 md"""
@@ -610,9 +610,9 @@ uuid = "ade2ca70-3891-5945-98fb-dc099432e06a"
 
 [[DocStringExtensions]]
 deps = ["LibGit2"]
-git-tree-sha1 = "a32185f5428d3986f47c2ab78b1f216d5e6cc96f"
+git-tree-sha1 = "b19534d1895d702889b219c382a6e18010797f0b"
 uuid = "ffbed154-4ef7-542d-bbb7-c09d3a79fcae"
-version = "0.8.5"
+version = "0.8.6"
 
 [[Downloads]]
 deps = ["ArgTools", "LibCURL", "NetworkOptions"]
