@@ -14,8 +14,8 @@ This  is  a  meta  package which  re-exports  several  Julia  packages
 developed  and  maintained  by   the  [WIAS](https://www.wias-berlin.de)  research  group  [Numerical
 Mathematics and Scientific Computing](https://www.wias-berlin.de/research/rgs/fg3/) and various coauthors.
 
-Before setting up the final workflow for this meta package we advise to add the packages below one-by-one
-in a project.
+The final workflow for this meta package has not yet been established.
+Currently, it is advisable to add the packages listed below one-by-one.
 
 ## Packages included 
 
