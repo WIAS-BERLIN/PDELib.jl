@@ -14,6 +14,9 @@ This  is  a  meta  package which  re-exports  several  Julia  packages
 developed  and  maintained  by   the  [WIAS](https://www.wias-berlin.de)  research  group  [Numerical
 Mathematics and Scientific Computing](https://www.wias-berlin.de/research/rgs/fg3/) and various coauthors.
 
+Before setting up the final workflow for this meta package we advise to add the packages below one-by-one
+in a project.
+
 ## Packages included 
 
 - [VoronoiFVM.jl](https://github.com/j-fu/VoronoiFVM.jl): a finite volume solver for systems of nonlinear PDEs
@@ -34,8 +37,10 @@ Not part of PDELib.jl, but maintained as part of the project:
 ## Documentation and examples
 
 Some examples are collected in the [examples](https://github.com/WIAS-BERLIN/PDELib.jl/tree/main/examples) subdirectory.
+
 More up-to-date examples and documentation are found in the respective package repositories, mainly in
 -  [VoronoiFVM.jl](https://j-fu.github.io/VoronoiFVM.jl/stable/)
 -  [GradientRobustMultiPhysics.jl](https://chmerdon.github.io/GradientRobustMultiPhysics.jl/stable/)
+
 
 
