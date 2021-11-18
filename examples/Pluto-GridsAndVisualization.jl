@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.16.4
+# v0.17.0
 
 using Markdown
 using InteractiveUtils
@@ -756,9 +756,9 @@ version = "1.4.1"
 
 [[Parsers]]
 deps = ["Dates"]
-git-tree-sha1 = "f19e978f81eca5fd7620650d7dbea58f825802ee"
+git-tree-sha1 = "ae4bbcadb2906ccc085cf52ac286dc1377dceccc"
 uuid = "69de0a69-1ddd-5017-9359-2bf0b02dc9f0"
-version = "2.1.0"
+version = "2.1.2"
 
 [[Pkg]]
 deps = ["Artifacts", "Dates", "Downloads", "LibGit2", "Libdl", "Logging", "Markdown", "Printf", "REPL", "Random", "SHA", "Serialization", "TOML", "Tar", "UUIDs", "p7zip_jll"]
@@ -772,15 +772,15 @@ version = "0.1.1"
 
 [[PlutoUI]]
 deps = ["Base64", "Dates", "Hyperscript", "HypertextLiteral", "IOCapture", "InteractiveUtils", "JSON", "Logging", "Markdown", "Random", "Reexport", "UUIDs"]
-git-tree-sha1 = "4c8a7d080daca18545c56f1cac28710c362478f3"
+git-tree-sha1 = "615f3a1eff94add4bca9476ded096de60b46443b"
 uuid = "7f904dfe-b85e-4ff6-b463-dae2292396a8"
-version = "0.7.16"
+version = "0.7.17"
 
 [[PlutoVista]]
 deps = ["ColorSchemes", "Colors", "DocStringExtensions", "GridVisualize", "UUIDs"]
-git-tree-sha1 = "34fc7e41e6eefa58fef0786ab62a20262df88764"
+git-tree-sha1 = "b99d4e38e7dba4535cee937e0444aed5912245d0"
 uuid = "646e1f28-b900-46d7-9d87-d554eb38a413"
-version = "0.8.6"
+version = "0.8.7"
 
 [[Preferences]]
 deps = ["TOML"]

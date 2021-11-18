@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.16.4
+# v0.17.1
 
 using Markdown
 using InteractiveUtils
@@ -7,8 +7,9 @@ using InteractiveUtils
 # This Pluto notebook uses @bind for interactivity. When running this notebook outside of Pluto, the following 'mock version' of @bind gives bound variables a default value (instead of an error).
 macro bind(def, element)
     quote
+        local iv = try Base.loaded_modules[Base.PkgId(Base.UUID("6e696c72-6542-2067-7265-42206c756150"), "AbstractPlutoDingetjes")].Bonds.initial_value catch; b -> missing; end
         local el = $(esc(element))
-        global $(esc(def)) = Core.applicable(Base.get, el) ? Base.get(el) : missing
+        global $(esc(def)) = Core.applicable(Base.get, el) ? Base.get(el) : iv(el)
         el
     end
 end
@@ -23,6 +24,9 @@ begin
         using Triangulate
         isdefined(Main,:PlutoRunner) ? 	default_plotter!(PlutoVista) : default_plotter!(nothing) 
 end
+
+# ╔═╡ a20b958d-0dd3-4637-9d71-2ec4e0cdc379
+
 
 # ╔═╡ 07194f25-5735-452f-9bed-cf791958d44d
 md"""
@@ -440,9 +444,9 @@ version = "1.4.1"
 
 [[Parsers]]
 deps = ["Dates"]
-git-tree-sha1 = "f19e978f81eca5fd7620650d7dbea58f825802ee"
+git-tree-sha1 = "ae4bbcadb2906ccc085cf52ac286dc1377dceccc"
 uuid = "69de0a69-1ddd-5017-9359-2bf0b02dc9f0"
-version = "2.1.0"
+version = "2.1.2"
 
 [[Pkg]]
 deps = ["Artifacts", "Dates", "Downloads", "LibGit2", "Libdl", "Logging", "Markdown", "Printf", "REPL", "Random", "SHA", "Serialization", "TOML", "Tar", "UUIDs", "p7zip_jll"]
@@ -456,15 +460,15 @@ version = "0.1.1"
 
 [[PlutoUI]]
 deps = ["Base64", "Dates", "Hyperscript", "HypertextLiteral", "IOCapture", "InteractiveUtils", "JSON", "Logging", "Markdown", "Random", "Reexport", "UUIDs"]
-git-tree-sha1 = "4c8a7d080daca18545c56f1cac28710c362478f3"
+git-tree-sha1 = "615f3a1eff94add4bca9476ded096de60b46443b"
 uuid = "7f904dfe-b85e-4ff6-b463-dae2292396a8"
-version = "0.7.16"
+version = "0.7.17"
 
 [[PlutoVista]]
 deps = ["ColorSchemes", "Colors", "DocStringExtensions", "GridVisualize", "UUIDs"]
-git-tree-sha1 = "34fc7e41e6eefa58fef0786ab62a20262df88764"
+git-tree-sha1 = "b99d4e38e7dba4535cee937e0444aed5912245d0"
 uuid = "646e1f28-b900-46d7-9d87-d554eb38a413"
-version = "0.8.6"
+version = "0.8.7"
 
 [[Preferences]]
 deps = ["TOML"]
@@ -592,6 +596,7 @@ uuid = "3f19e933-33d8-53b3-aaab-bd5110c3b7a0"
 
 # ╔═╡ Cell order:
 # ╠═60941eaa-1aea-11eb-1277-97b991548781
+# ╠═a20b958d-0dd3-4637-9d71-2ec4e0cdc379
 # ╟─07194f25-5735-452f-9bed-cf791958d44d
 # ╠═d0f3483a-2bf4-4e2d-80b0-6c869b45cda8
 # ╠═fd8f6c48-0030-4f6f-9fbf-9f2340decbf2
