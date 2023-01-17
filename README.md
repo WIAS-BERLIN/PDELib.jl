@@ -19,7 +19,7 @@ Currently, it is advisable to add the packages listed below one-by-one.
 
 ## Packages included 
 
-- [VoronoiFVM.jl](https://github.com/j-fu/VoronoiFVM.jl): a finite volume solver for systems of nonlinear PDEs
+- [VoronoiFVM.jl](https://github.com/j-fu/VoronoiFVM.jl),: a finite volume solver for systems of nonlinear PDEs
 - [GradientRobustMultiPhysics.jl](https://github.com/chmerdon/GradientRobustMultiPhysics.jl): finite element library implementing gradient robust FEM
 - [ExtendableGrids.jl](https://github.com/j-fu/ExtendableGrids.jl): unstructured grid management library
 - [GridVisualize.jl](https://github.com/j-fu/GridVisualize.jl): grid and function visualization related to ExtendableGrids.jl

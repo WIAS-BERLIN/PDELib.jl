@@ -1,7 +1,7 @@
 name = "PDELib"
 uuid = "89250b5f-5002-42e4-96e5-388c85c70594"
 authors = ["Juergen Fuhrmann <juergen.fuhrmann@wias-berlin.de>"]
-version = "0.3.0"
+version = "0.4.0"
 
 [deps]
 ExtendableGrids = "cfc395e8-590f-11e8-1f13-43a2532b2fa8"
@@ -15,11 +15,11 @@ Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
 VoronoiFVM = "82b139dc-5afc-11e9-35da-9b9bdfd336f3"
 
 [compat]
-ExtendableGrids = "0.8,0.9,0.10"
-ExtendableSparse = "0.6,0.7,0.8"
-GradientRobustMultiPhysics = "0.6,0.7,0.8"
-GridVisualize = "0.3,0.4,0.5"
+ExtendableGrids = "0.9"
+ExtendableSparse = "0.9"
+GradientRobustMultiPhysics = "0.10"
+GridVisualize = "0.5,0.6"
 Reexport = "1"
-SimplexGridFactory = "0.5,0.6,0.7"
-VoronoiFVM = "0.13,0.14,0.15"
+SimplexGridFactory = "0.5"
+VoronoiFVM = "0.18"
 julia = "1.5"
