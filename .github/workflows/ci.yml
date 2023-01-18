@@ -40,6 +40,11 @@ jobs:
             ${{ runner.os }}-test-${{ env.cache-name }}-
             ${{ runner.os }}-test-
             ${{ runner.os }}-
+      - run: |
+          julia --project=. -e '
+            using Pkg
+            Pkg.upgrade_manifest()'
+        env:
       - uses: julia-actions/julia-buildpkg@v1
         env:
           PYTHON: ""
