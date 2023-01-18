@@ -47,7 +47,6 @@ jobs:
           julia --project=. -e '
             using Pkg
             Pkg.upgrade_manifest()'
-        env:
       - uses: julia-actions/julia-runtest@v1
         env:
           PYTHON: ""
