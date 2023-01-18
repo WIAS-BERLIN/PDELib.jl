@@ -2,30 +2,29 @@
 [![](https://img.shields.io/badge/docs-dev-blue.svg)](https://wias-berlin.github.io/PDELib.jl/dev/)
 
 
-
-
-
 PDELib.jl
 =========
 
-Work-In-Progress Julia implemenentation of  [pdelib](https://pdelib.org).
-
 This  is  a  meta  package which  re-exports  several  Julia  packages
 developed  and  maintained  by   the  [WIAS](https://www.wias-berlin.de)  research  group  [Numerical
-Mathematics and Scientific Computing](https://www.wias-berlin.de/research/rgs/fg3/) and various coauthors.
+Mathematics and Scientific Computing](https://www.wias-berlin.de/research/rgs/fg3/) and various coauthors,
+inspired by [pdelib](https://pdelib.org) which was implemented in C++ and python.
 
-The final workflow for this meta package has not yet been established.
+The final workflow for maintaining this meta package has not yet been established.
 Currently, it is advisable to add the packages listed below one-by-one.
 
-## Packages included 
-
-- [VoronoiFVM.jl](https://github.com/j-fu/VoronoiFVM.jl),: a finite volume solver for systems of nonlinear PDEs
+## Packages re-exported
+- [VoronoiFVM.jl](https://github.com/j-fu/VoronoiFVM.jl): a finite volume solver for systems of nonlinear PDEs
 - [GradientRobustMultiPhysics.jl](https://github.com/chmerdon/GradientRobustMultiPhysics.jl): finite element library implementing gradient robust FEM
 - [ExtendableGrids.jl](https://github.com/j-fu/ExtendableGrids.jl): unstructured grid management library
 - [GridVisualize.jl](https://github.com/j-fu/GridVisualize.jl): grid and function visualization related to ExtendableGrids.jl
 - [SimplexGridFactory.jl](https://github.com/j-fu/SimplexGridFactory.jl): unified high level  mesh generator interface
 - [ExtendableSparse.jl](https://github.com/j-fu/ExtendableSparse.jl): convenient and efficient sparse matrix assembly
 
+## Packages associated
+- [PlutoVista.jl](https://github.com/j-fu/PlutoVista.jl): Backend for using GridVisualize.jl in Pluto notebooks based on Plotly.js and vtk.js
+- [VoronoiFVMDiffEq.jl](https://github.com/j-fu/VoronoiFVMDiffEq.jl):  glue package for using VoronoiFVM.jl together with DifferentialEquations.jl
+  
 ## Additional packages maintained
 
 Not part of PDELib.jl, but maintained as part of the project:
@@ -41,6 +40,7 @@ Some examples are collected in the [examples](https://github.com/WIAS-BERLIN/PDE
 More up-to-date examples and documentation are found in the respective package repositories, mainly in
 -  [VoronoiFVM.jl](https://j-fu.github.io/VoronoiFVM.jl/stable/)
 -  [GradientRobustMultiPhysics.jl](https://chmerdon.github.io/GradientRobustMultiPhysics.jl/stable/)
+-  [VoronoiFVMDiffEq.jl](https://j-fu.github.io/VoronoiFVMDiffEq.jl/stable/)
 
 
 
