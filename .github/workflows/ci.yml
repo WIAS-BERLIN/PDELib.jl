@@ -43,10 +43,6 @@ jobs:
       - uses: julia-actions/julia-buildpkg@v1
         env:
           PYTHON: ""
-      - run: |
-          julia --project=. -e '
-            using Pkg
-            Pkg.upgrade_manifest()'
       - uses: julia-actions/julia-runtest@v1
         env:
           PYTHON: ""
