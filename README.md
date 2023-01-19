@@ -24,6 +24,7 @@ Currently, it is advisable to add the packages listed below one-by-one.
 ## Packages associated
 - [PlutoVista.jl](https://github.com/j-fu/PlutoVista.jl): Backend for using GridVisualize.jl in Pluto notebooks based on Plotly.js and vtk.js
 - [VoronoiFVMDiffEq.jl](https://github.com/j-fu/VoronoiFVMDiffEq.jl):  glue package for using VoronoiFVM.jl together with DifferentialEquations.jl
+- [GridVisualizeTools.jl](https://github.com/j-fu/GridVisualizeTools.jl): some tools for GridVisualize.jl and PlutoVista.jl
   
 ## Additional packages maintained
 
