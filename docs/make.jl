@@ -8,7 +8,7 @@ function make_all()
         clean = false,
         doctest = false,
         authors = "J. Fuhrmann, Ch.Merdon. T. Streckenbach",
-        repo="https://github.com/j-fu/PDELib.jl",
+        repo="https://github.com/WIAS-BERLIN/PDELib.jl",
         pages=[ 
             "Home"=>"index.md",
             "Introductory Material"=>"intro.md",
