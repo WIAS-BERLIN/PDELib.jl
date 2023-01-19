@@ -1,4 +1,5 @@
 [![Build status](https://github.com/WIAS-BERLIN/PDELib.jl/workflows/linux-macos-windows/badge.svg)](https://github.com/WIAS-BERLIN/PDELib.jl/actions)
+[![](https://img.shields.io/badge/docs-dev-blue.svg)](https://wias-berlin.github.io/PDELib.jl/stable/)
 [![](https://img.shields.io/badge/docs-dev-blue.svg)](https://wias-berlin.github.io/PDELib.jl/dev/)
 
 
